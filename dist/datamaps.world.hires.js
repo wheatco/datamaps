@@ -249,9 +249,7 @@
       .style('stroke', geoConfig.borderColor)
       .on('click', function(d) {
         var datum = colorCodeData[d.id];
-        console.log("clicked", d, datum);
-        console.log("Datum", datum)
-        if (d.properties && d.properties.click) d.properties.click();
+        if (datum && datum.click) datum.click(d, datum);
       });
   }
 
