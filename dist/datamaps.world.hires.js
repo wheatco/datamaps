@@ -336,8 +336,8 @@
           label = fillKey + ': ';
         }
       }
-      html += '<dt>' + label + '</dt>';
-      html += '<dd style="background-color:' + this.options.fills[fillKey] + '">&nbsp;</dd>';
+      html += '<div class="legend-row"><dt>' + label + '</dt>';
+      html += '<dd style="background-color:' + this.options.fills[fillKey] + '">&nbsp;</dd></div>';
     }
     html += '</dl>';
 
