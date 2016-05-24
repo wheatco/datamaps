@@ -212,6 +212,11 @@
 
     var geo = subunits.selectAll('path.datamaps-subunit').data(geoData);
 
+    var clickHandler = function(d) {
+      var datum = colorCodeData[d.id];
+      if (datum && datum.click) datum.click(d, datum);
+    };
+
     geo.enter()
       .append('path')
       .attr('d', this.path)
@@ -247,10 +252,8 @@
       .style('stroke-width', geoConfig.borderWidth)
       .style('stroke-opacity', geoConfig.borderOpacity)
       .style('stroke', geoConfig.borderColor)
-      .on('click', function(d) {
-        var datum = colorCodeData[d.id];
-        if (datum && datum.click) datum.click(d, datum);
-      });
+      .on('click', clickHandler)
+      .on('touchstart', clickHandler);
   }
 
   function handleGeographyConfig() {
